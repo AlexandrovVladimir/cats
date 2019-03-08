@@ -6,18 +6,26 @@
 	justify-content: center
 	align-items: center
 	padding: 1rem
-	width: 1200px
+	//width: 1200px
+	@media screen and (max-width: 1199px)
+		max-width: 991px
 	&-wrapper
 		display: flex
 		align-items: center
 		justify-content: center
 		min-height: 100vh
+		padding: 1rem
+		overflow: hidden
 	&__title
 		font-size: 36px
 		font-family: $font
 		color: rgb(255, 255, 255)
 		text-align: center
-		
+		@media screen and (max-width: 767px)
+			font-size: 25px
+		@media screen and (max-width: 359px)
+			font-size: 20px
+			
 .cats-list
 	background-color: transparent
 	margin-top: 1rem
@@ -25,39 +33,64 @@
 	align-items: center
 	justify-content: center
 	width: 100%
+	@media screen and (max-width: 1199px)
+		flex-wrap: wrap
 	.item-on-hover
+		cursor: pointer
+		transition: all 0.3s linear
 		&:hover
-			.cats-item-wrapper
-				border: 4px solid $blue-hover
+			.cats-item-filled
+				background: $blue-hover
+				background: linear-gradient(135deg, transparent 31px, $blue-hover 0)
 			.size
-				background-color: $blue-hover
-		&.active
-			.cats-item-wrapper
-				border: 4px solid $pink
-				&:hover
-					border: 4px solid $pink-hover
+				background: $blue-hover
+			.cats-list__message_link
+				color: $blue-hover
+				&:after
+					background-position:  0 -3px
+		&.on-active
+			&:hover
+				.cats-item-filled
+					background: $pink-hover
+					background: linear-gradient(135deg, transparent 31px, $pink-hover 0)
 					.size
-						background-color: $pink-hover
-			.size
-				background-color: $pink
+						background: $pink-hover
+
 	&__item
 		flex: 0 0 324px
 		max-width: 324px
 		position: relative
-		margin-left: 45px
-		margin-right: 45px
-		&.active
-			.cats-item-wrapper
-				border: 4px solid $pink
-				&:hover
-					border: 4px solid $pink-hover
-					.size
-						background-color: $pink-hover
-			.size
-				background-color: $pink
+		&:nth-child(2)
+			margin-left: 90px
+			margin-right: 90px
+			@media screen and (max-width: 1199px)
+				margin: 1rem 2rem
 		&.disabled
+			.cats-item
+				opacity: 0.6
+			.cats-item-filled
+				background: lightgrey
+				background: linear-gradient(135deg, transparent 31px, lightgrey 0)
+			.cats-item__excerpt
+				color: lightgrey
 			.cats-list__message
 				color: rgb(255, 255, 102)
+			.cats-item__title
+				&_big, &_normal
+					color: lightgrey
+			.cats-item__description li
+				color: lightgrey
+			.size
+				background-color: grey
+		@media screen and (max-width: 1199px)
+			text-align: left
+			margin: 1rem 2rem
+		@media screen and (max-width: 767px)
+			max-width: 300px
+			flex: 0 0 300px
+		@media screen and (max-width: 359px)
+			max-width: 280px
+			flex: 0 0 280px
 	&__message
 		font-size: 13px
 		font-family: $font-trebuchet
@@ -68,28 +101,49 @@
 			color: $blue
 			font-size: 13px
 			font-family: $font-trebuchet
-			transition: all 0.3s ease-in-out
+			position: relative
+			transition: all 0.3s linear
 			&:hover
-				color: $blue-hover
-		
+				text-decoration: none
+			&:focus
+				color: $blue
+				text-decoration: none
+			&:after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 0
+				width: 100%
+				height: 2px
+				background: url('../img/spritesheet.png') no-repeat
+				background-position:  0 0
 
-		
 .cats-item
 	cursor: pointer
 	padding-top: 20px
-	&-wrapper
-		border: 4px solid $blue
+	height: 100%
+	&-filled
+		background: $blue
+		background: linear-gradient(135deg, transparent 31px, $blue 0)
 		-webkit-border-radius: 20px
 		-moz-border-radius: 20px
 		border-radius: 20px
-		transition: all 0.3s ease-out
+		padding: 4px
+		transition: all 0.3s linear
+		&.active
+			background: $pink
+			background: linear-gradient(135deg, transparent 31px, $pink 0)
+			.size
+				background: $pink
+	&-wrapper
+		//border: 4px solid $blue
+		-webkit-border-radius: 18px
+		-moz-border-radius: 18px
+		border-radius: 18px
+		transition: all 0.3s linear
 		position: relative
 		background: rgb(242, 242, 242)
-		//border: 4px solid transparent
-		//background: linear-gradient(135deg, transparent 45px, rgb(242, 242, 242) 0)
-		//border-left-width: 0
-		//border-top-width: 0
-		height: 494px
+		background: linear-gradient(135deg, transparent 29px, rgb(242, 242, 242) 0)
 		overflow: hidden
 	&__excerpt, &__title, &__description
 		padding-left: 45px
@@ -124,9 +178,9 @@
 			line-height: 1.143
 			
 .cats-image
-	max-height: 265px
 	overflow: hidden
 	position: relative
+	max-height: 270px
 	.cat
 		transform: translateX(-1rem)
 
@@ -144,7 +198,7 @@
 	-moz-border-radius: 50%
 	border-radius: 50%
 	line-height: 1
-	transition: all 0.3s ease-out
+	transition: all 0.3s linear
 	&_digit, &_weight
 		font-family: $font-trebuchet
 		color: rgb(255, 255, 255)
@@ -153,3 +207,8 @@
 		font-size: 42px
 	&_weight
 		font-size: 21px
+
+.slick-slide
+	> div
+		@media screen and (max-width: 1199px)
+			text-align: center

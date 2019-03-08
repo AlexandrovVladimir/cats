@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+
+  <link rel="stylesheet" href="css/libs.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="description" content="Cats" />
+
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-16x16.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-32x32.png">
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#000">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#000">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+</head>
+
+<body class="body">
+
+  <div class="cut-corner filled"></div>
+
+  <style>
+    .cut-corner {
+      height: 100px;
+      width: 200px;
+      background-image: linear-gradient(to bottom left, transparent 50%, beige 50%), linear-gradient(beige, beige), linear-gradient(beige, beige);
+      background-size: 25px 25px, 100% 100%, 100% 100%;
+      background-position: 100% 0%, -25px 0%, 100% 25px;
+      background-repeat: no-repeat;
+    }
+    .filled {
+      background-image: linear-gradient(black, black), linear-gradient(black, black), linear-gradient(black, black), linear-gradient(black, black), linear-gradient(to bottom left, transparent calc(50% - 1px), black calc(50% - 1px), black calc(50% + 1px), beige calc(50% + 1px)), linear-gradient(beige, beige), linear-gradient(beige, beige);
+      background-size: 2px 100%, 2px 100%, 100% 2px, 100% 2px, 25px 25px, 100% 100%, 100% 100%;
+      background-position: 0% 0%, 100% 25px, -25px 0%, 0px 100%, 100% 0%, -25px 0%, 100% 25px;
+    }
+  </style>
+
+  <script src="js/libs.min.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>
